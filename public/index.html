@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>あいオギ相談室</title>
+<style>
+  :root {
+    color-scheme: light dark;
+  }
+  body {
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+  h1 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  #chat {
+    flex: 1;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  .msg {
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 80%;
+    white-space: pre-wrap;
+    line-height: 1.5;
+  }
+  .user {
+    background: #d6e8ff;
+    margin-left: auto;
+    text-align: left;
+  }
+  .assistant {
+    background: #eee;
+    margin-right: auto;
+  }
+  form {
+    display: flex;
+    gap: 8px;
+  }
+  input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  button {
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    background: #333;
+    color: white;
+    cursor: pointer;
+  }
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+</style>
+</head>
+<body>
+  <h1>あいオギ相談室</h1>
+  <div id="chat"></div>
+  <form id="form">
+    <input id="input" type="text" placeholder="悩みを相談してみよう" autocomplete="off" required>
+    <button id="send" type="submit">送信</button>
+  </form>
+  <script src="chat.js"></script>
+</body>
+</html>
