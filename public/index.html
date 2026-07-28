@@ -37,6 +37,7 @@
     max-width: 80%;
     white-space: pre-wrap;
     line-height: 1.5;
+    color: #111;
   }
   .user {
     background: #d6e8ff;
@@ -51,12 +52,15 @@
     display: flex;
     gap: 8px;
   }
-  input {
+  textarea {
     flex: 1;
     padding: 10px;
     font-size: 1rem;
     border-radius: 8px;
     border: 1px solid #ccc;
+    font-family: inherit;
+    resize: none;
+    max-height: 40vh;
   }
   button {
     padding: 10px 16px;
@@ -77,7 +81,7 @@
   <h1>こなんぱん相談室</h1>
   <div id="chat"></div>
   <form id="form">
-    <input id="input" type="text" placeholder="悩みを相談してみよう" autocomplete="off" required>
+    <textarea id="input" rows="1" placeholder="悩みを相談してみよう(Shift+Enterで改行)" autocomplete="off" required></textarea>
     <button id="send" type="submit">送信</button>
   </form>
   <script src="chat.js"></script>

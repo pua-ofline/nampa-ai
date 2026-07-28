@@ -33,12 +33,26 @@ function setMessageText(div, text) {
   div.innerHTML = renderMarkdown(text);
 }
 
+function autoResize() {
+  inputEl.style.height = 'auto';
+  inputEl.style.height = `${inputEl.scrollHeight}px`;
+}
+inputEl.addEventListener('input', autoResize);
+
+inputEl.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    formEl.requestSubmit();
+  }
+});
+
 formEl.addEventListener('submit', async (e) => {
   e.preventDefault();
   const text = inputEl.value.trim();
   if (!text) return;
 
   inputEl.value = '';
+  autoResize();
   sendBtn.disabled = true;
 
   messages.push({ role: 'user', content: text });
